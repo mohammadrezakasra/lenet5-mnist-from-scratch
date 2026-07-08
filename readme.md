@@ -1,47 +1,82 @@
-## 🇬🇧 English Version
+<div align="center">
 
-This repository contains a modular implementation of a Deep Learning and Convolutional Neural Network (CNN) framework built entirely from scratch using only **NumPy**. The primary objective of this project is to understand deep learning from first principles by manually implementing every stage of the training pipeline, including convolution, pooling, backpropagation, optimization algorithms, weight initialization strategies, and parameter updates without relying on automatic differentiation or high-level frameworks such as TensorFlow or PyTorch.
+# 🧠 Autonomous CNN & Deep Learning Framework from Scratch
 
-The framework is designed around a dynamic architecture, allowing users to build custom CNN models by stacking an arbitrary number of **Convolutional**, **Pooling**, and **Fully Connected** layers while maintaining a clean and modular object-oriented implementation.
+### چارچوب پیشرفته و ماژولار شبکه عصبی کانولوشنی از ابتدا با نام‌پای
 
-### 🚀 Key Features
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-1.20+-darkgreen.svg?style=flat-square&logo=numpy&logoColor=white)](https://numpy.org/)
+[![Framework](https://img.shields.io/badge/Framework-From--Scratch-orange.svg?style=flat-square)](https://github.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-* **Dynamic CNN Architecture:** Easily construct custom CNN models by combining any number of Convolutional, Pooling, and Fully Connected layers through the flexible `Neural Networks` class.
-* **Dual Convolution Engine:** Implements both traditional **Vanilla 2D Convolution** and an optimized **im2col-based vectorized convolution** for efficient large-scale matrix computation.
-* **Analytical Convolution Backpropagation:** Complete manual derivation and implementation of gradients with respect to input feature maps, convolution kernels, and bias parameters without automatic differentiation.
-* **Comprehensive Pooling Layers:** Full implementations of **Max Pooling** and **Average Pooling**, including mathematically correct backward propagation algorithms.
-* **Custom Padding Operations:** Configurable Zero-Padding implementation supporting different convolution configurations.
-* **Advanced Weight Initialization:** Supports both **Xavier (Glorot)** and **He (Kaiming)** initialization strategies for stable gradient propagation during deep network training.
-* **Vectorized Activation Functions:** Efficient implementations of **ReLU** and **Sigmoid**, together with their analytical derivatives for backpropagation.
-* **Multiple Optimization Algorithms:** From-scratch implementations of **Momentum**, **RMSprop**, and **Adam** optimizers.
-* **Mini-batch Gradient Descent:** Efficient mini-batch training pipeline with configurable batch sizes for scalable CNN optimization.
-* **Cross-Entropy Loss:** Complete implementation of multi-class Cross-Entropy Loss using vectorized NumPy operations.
-* **Complete End-to-End Training Pipeline:** Covers data preprocessing, forward propagation, backward propagation, parameter initialization, optimization, and model training entirely from scratch.
+**Language / زبان**
+
+**[🇬🇧 English Version](#-english-version)** | **[🇮🇷 نسخه فارسی](#-نسخه-فارسی)**
+
+</div>
 
 ---
 
-### 📊 Empirical Analysis & Experimental Results
+# 🇬🇧 English Version
 
-The framework was experimentally validated on a subset of **1,500 MNIST samples** to verify the mathematical correctness of every implemented component.
+This repository features a production-grade, modular Deep Learning and Convolutional Neural Network (CNN) framework engineered **completely from scratch using only NumPy**. Designed around a dynamic, scalable architecture, it allows developers to assemble custom deep topologies by combining an arbitrary sequence of convolutional, pooling, and dense layers.
 
-During training, several important deep learning properties were successfully confirmed:
-
-> 💡 **Gradient Flow Verification:** Forward propagation, convolution backpropagation, pooling backpropagation, and optimizer updates consistently preserved tensor dimensions while producing mathematically correct gradients throughout the entire computational graph.
-
-> 📉 **Successful Optimization:** The manually implemented optimization algorithms (Adam, RMSprop, and Momentum) consistently reduced the Cross-Entropy Loss during training, confirming the correctness of the analytical derivatives and parameter update rules.
-
-> ⚙️ **Stable Training Initialization:** Both Xavier and He initialization strategies provided stable gradient propagation and accelerated convergence during network optimization.
+Every single mathematical layer, analytical derivative, and adaptive optimization mechanics has been implemented from first principles—bypassing high-level deep learning engines like PyTorch or TensorFlow to achieve full control over the tensor graph.
 
 ---
 
-### 📂 Architecture & Core Components
+## 🚀 Core Architectural Matrix
 
-The entire implementation is organized inside the main Jupyter Notebook (`.ipynb`) and is divided into independent modules:
+| Component | Implemented Technologies & Methods |
+| :--- | :--- |
+| **Convolution Engine** | Dual Mode: Vanilla Spatial 2D Conv & High-Performance Vectorized im2col Engine |
+| **Pooling Suite** | Spatial Max Pooling & Average Pooling with exact Analytical Gradient Trackers |
+| **Optimizers** | Standalone Class featuring Adam, RMSprop, and Momentum from scratch |
+| **Initializers** | He (Kaiming) & Xavier (Glorot) distributions for gradient stabilization |
+| **Activations & Loss** | Vectorized ReLU, Sigmoid functions, and Multi-class Categorical Cross-Entropy |
+| **Infrastructure** | Dynamic Topology orchestrator (Neural Networks), Customizable Zero-Padding, Mini-batch SGD |
 
-* **Data Pipeline:** Dataset loading, preprocessing, visualization, reshaping, and Zero-Center normalization.
-* **Core Mathematical Operations:** ReLU, Sigmoid, Zero Padding, Vanilla Convolution, Vectorized Convolution (`im2col`), and complete Convolution Backpropagation.
-* **Pooling Modules:** Forward and Backward implementations of Max Pooling and Average Pooling.
-* **Training Components:** Xavier Initialization, He Initialization, Cross-Entropy Loss, Optimizer class (Momentum, RMSprop, Adam), Mini-batch training pipeline, and the dynamic `Neural Networks` class responsible for model construction and end-to-end training.
+---
+
+## 📊 Empirical Analysis & Experimental Verification
+
+The framework's mathematical accuracy and backpropagation mechanics were thoroughly stress-tested using a localized subset of **1,500 MNIST** handwritten digits.
+
+- **Determinism & Dimensional Sanity:** Tensor dimensions and spatial channels remained strictly invariant across nested Forward → Backward → Parameter Update iterations.
+- **Loss Optimization Convergence:** Cross-Entropy loss combined with Adam and RMSprop demonstrated stable monotonic convergence.
+- **Initialization Benchmarking:** Both He and Xavier initialization successfully prevented vanishing/exploding gradients.
+
+---
+
+## 📂 File Structure & Execution Map
+
+```text
+├── Data Pipeline
+│   ├── Dataset Loading
+│   ├── 4D Reshaping
+│   ├── Visualizers
+│   └── Zero-Center Preprocessing
+│
+├── Core Spatial Ops
+│   ├── ReLU
+│   ├── Sigmoid
+│   ├── Padding
+│   ├── Vanilla Convolution
+│   ├── Vectorized Convolution (im2col)
+│   └── Convolution Backward
+│
+├── Pooling Modules
+│   ├── Max Pooling
+│   ├── Average Pooling
+│   ├── max_pool_backward
+│   └── avg_pool_backward
+│
+└── Training Backbone
+    ├── He & Xavier Initialization
+    ├── Cross-Entropy Loss
+    ├── Optimizer Class
+    └── Neural Networks Class
+```
 
 ---
 
@@ -49,72 +84,87 @@ The entire implementation is organized inside the main Jupyter Notebook (`.ipynb
 
 - [ ] Batch Normalization
 - [ ] Dropout Regularization
-- [ ] Softmax Layer
-- [ ] Additional Learning Rate Schedulers
-- [ ] Data Augmentation Pipeline
-- [ ] Model Serialization (Save / Load)
-- [ ] GPU Acceleration (CuPy)
-- [ ] Additional CNN Architectures (LeNet, Resnet) with Pytorch
-
----
-## 🇮🇷 نسخه فارسی
-
-<div dir="rtl">
-
-این مخزن شامل یک پیاده‌سازی مدولار از یک فریمورک یادگیری عمیق و شبکه عصبی کانولوشنی (CNN) است که **به‌صورت کامل از پایه (From Scratch) و تنها با استفاده از کتابخانه NumPy** توسعه یافته است. هدف اصلی این پروژه، درک عمیق مفاهیم یادگیری عمیق از اصول اولیه از طریق پیاده‌سازی دستی تمامی مراحل آموزش شبکه، شامل کانولوشن، پولینگ، پس‌انتشار خطا، روش‌های مقداردهی اولیه وزن‌ها، الگوریتم‌های بهینه‌سازی و به‌روزرسانی پارامترها، بدون استفاده از کتابخانه‌هایی مانند TensorFlow یا PyTorch است.
-
-این فریمورک بر پایه یک معماری پویا طراحی شده است و به کاربر اجازه می‌دهد با ترکیب هر تعداد دلخواه از **لایه‌های Convolution، Pooling و Fully Connected**، شبکه‌های CNN سفارشی خود را به‌سادگی ایجاد و آموزش دهد.
-
-### 🚀 قابلیت‌های کلیدی
-
-* **معماری پویای CNN:** امکان ساخت شبکه‌های CNN سفارشی با هر تعداد دلخواه از لایه‌های کانولوشن، پولینگ و Fully Connected از طریق کلاس `Neural Networks`.
-* **موتور دوگانه کانولوشن:** پیاده‌سازی هر دو روش **Vanilla Convolution** و نسخه بهینه‌شده مبتنی بر **im2col** برای افزایش سرعت محاسبات ماتریسی.
-* **پس‌انتشار کامل کانولوشن:** محاسبه تحلیلی گرادیان نسبت به ورودی، فیلترها و بایاس‌ها بدون استفاده از قابلیت Auto-Differentiation.
-* **مجموعه کامل لایه‌های Pooling:** پیاده‌سازی کامل **Max Pooling** و **Average Pooling** به همراه الگوریتم‌های دقیق Backward Propagation.
-* **عملیات Padding:** پیاده‌سازی Zero Padding با اندازه‌های قابل تنظیم برای پشتیبانی از ساختارهای مختلف کانولوشن.
-* **مقداردهی اولیه پیشرفته:** پیاده‌سازی روش‌های **Xavier (Glorot)** و **He (Kaiming)** جهت حفظ پایداری انتشار گرادیان در شبکه‌های عمیق.
-* **توابع فعال‌سازی برداری:** پیاده‌سازی کامل توابع **ReLU** و **Sigmoid** به همراه مشتق تحلیلی آن‌ها برای فاز Backpropagation.
-* **بهینه‌سازهای پیشرفته:** پیاده‌سازی کامل الگوریتم‌های **Momentum**، **RMSprop** و **Adam** از پایه.
-* **آموزش Mini-batch:** پیاده‌سازی کامل آموزش مبتنی بر Mini-batch با اندازه‌های قابل تنظیم برای افزایش کارایی فرآیند آموزش.
-* **تابع هزینه Cross-Entropy:** پیاده‌سازی برداری تابع هزینه چندکلاسه Cross-Entropy تنها با استفاده از NumPy.
-* **خط لوله کامل آموزش:** شامل پیش‌پردازش داده‌ها، انتشار رو به جلو (Forward)، پس‌انتشار خطا (Backward)، مقداردهی اولیه پارامترها، بهینه‌سازی و آموزش کامل شبکه از ابتدا.
+- [ ] Standalone Softmax Layer
+- [ ] Learning Rate Schedulers (StepLR, Cosine Annealing)
+- [ ] Data Augmentation
+- [ ] Model Serialization (.pkl)
+- [ ] GPU Acceleration using CuPy
+- [ ] Classical Architectures (LeNet, ResNet) implemented with PyTorch
 
 ---
 
-### 📊 تحلیل تجربی و نتایج آموزش
+# 🇮🇷 نسخه فارسی
 
-به‌منظور ارزیابی صحت تمامی اجزای پیاده‌سازی‌شده، این فریمورک روی زیرمجموعه‌ای شامل **۱۵۰۰ نمونه از دیتاست MNIST** مورد آزمایش قرار گرفت.
+این مخزن شامل یک فریمورک پیشرفته، مدولار و کاملاً شیءگرا برای یادگیری عمیق و شبکه‌های عصبی کانولوشنی (CNN) است که **تنها با استفاده از کتابخانه NumPy** و بدون اتکا به فریمورک‌هایی مانند PyTorch یا TensorFlow توسعه یافته است.
 
-در طول آموزش، ویژگی‌های مهم زیر با موفقیت تأیید شدند:
+معماری این پروژه به‌صورت پویا طراحی شده و امکان ساخت شبکه‌های عصبی دلخواه از ترکیب لایه‌های کانولوشن، پولینگ و لایه‌های تمام‌متصل را فراهم می‌کند.
 
-> 💡 **صحت انتشار گرادیان:** عملیات Forward، Backward کانولوشن، Backward پولینگ و به‌روزرسانی پارامترها در تمام لایه‌ها، ابعاد تنسورها را به‌درستی حفظ کرده و گرادیان‌های کاملاً سازگار با روابط ریاضی تولید کردند.
-
-> 📉 **بهینه‌سازی موفق شبکه:** پیاده‌سازی اختصاصی بهینه‌سازهای Adam، RMSprop و Momentum توانست مقدار تابع هزینه Cross-Entropy را به‌صورت پایدار در طول آموزش کاهش دهد که نشان‌دهنده صحت مشتق‌گیری‌های تحلیلی و فرآیند به‌روزرسانی پارامترها است.
-
-> ⚙️ **پایداری آموزش:** استفاده از روش‌های مقداردهی اولیه Xavier و He موجب انتشار پایدار گرادیان‌ها و همگرایی سریع‌تر شبکه در مراحل آموزش شد.
+تمامی روابط ریاضی، مشتقات تحلیلی، الگوریتم‌های پس‌انتشار خطا و بهینه‌سازهای تطبیقی از پایه و بدون استفاده از کتابخانه‌های یادگیری عمیق پیاده‌سازی شده‌اند.
 
 ---
 
-### 📂 ساختار اجزای اصلی پروژه
+## 🚀 ماتریس ساختاری و قابلیت‌های کلیدی
 
-منطق ریاضی و ساختار عملیاتی پروژه به‌صورت ماژولار در فایل اصلی Jupyter Notebook (`.ipynb`) سازماندهی شده است:
+| بخش | قابلیت‌ها |
+| :--- | :--- |
+| **هسته کانولوشن** | کانولوشن دوبعدی ساده (Vanilla) + نسخه برداری‌شده مبتنی بر im2col |
+| **لایه‌های پولینگ** | پیاده‌سازی کامل Max Pooling و Average Pooling همراه با Backward دقیق |
+| **بهینه‌سازها** | Adam، RMSprop و Momentum از پایه |
+| **مقداردهی اولیه** | He (Kaiming) و Xavier (Glorot) |
+| **توابع فعال‌سازی و هزینه** | ReLU، Sigmoid و Cross-Entropy |
+| **زیرساخت آموزش** | معماری پویا، Padding سفارشی و Mini-batch SGD |
 
-* **خط لوله داده:** بارگذاری دیتاست، نمایش نمونه‌ها، پیش‌پردازش، تغییر ابعاد داده‌ها و نرمال‌سازی Zero-Center.
-* **عملیات پایه:** پیاده‌سازی ReLU، Sigmoid، Zero Padding، Vanilla Convolution، کانولوشن مبتنی بر `im2col` و الگوریتم کامل Backpropagation کانولوشن.
-* **لایه‌های Pooling:** پیاده‌سازی Forward و Backward برای Max Pooling و Average Pooling.
-* **اجزای آموزش:** مقداردهی اولیه Xavier و He، تابع هزینه Cross-Entropy، کلاس Optimizer (شامل Momentum، RMSprop و Adam)، آموزش Mini-batch و کلاس پویای `Neural Networks` برای ساخت، مدیریت و آموزش کامل شبکه.
+---
+
+## 📊 تحلیل تجربی و نتایج آموزش
+
+صحت روابط ریاضی و مکانیزم Backpropagation با استفاده از **۱۵۰۰ نمونه** از دیتاست MNIST مورد ارزیابی قرار گرفت.
+
+- **پایداری ابعاد تنسورها** در تمام مراحل Forward و Backward حفظ شد.
+- **کاهش یکنواخت تابع هزینه** با استفاده از Adam و RMSprop مشاهده شد.
+- **مقداردهی اولیه He و Xavier** از محوشدگی و انفجار گرادیان جلوگیری کرد.
+
+---
+
+## 📂 ساختار پروژه
+
+```text
+├── خط لوله داده
+│   ├── بارگذاری دیتاست
+│   ├── تبدیل به تنسور چهار بعدی
+│   ├── نمایش تصاویر
+│   └── نرمال‌سازی Zero-Center
+│
+├── عملیات پایه
+│   ├── ReLU
+│   ├── Sigmoid
+│   ├── Padding
+│   ├── کانولوشن ساده
+│   ├── کانولوشن برداری‌شده (im2col)
+│   └── Backward کانولوشن
+│
+├── لایه‌های پولینگ
+│   ├── Max Pooling
+│   ├── Average Pooling
+│   ├── max_pool_backward
+│   └── avg_pool_backward
+│
+└── موتور آموزش
+    ├── مقداردهی اولیه
+    ├── Cross-Entropy
+    ├── کلاس Optimizer
+    └── کلاس Neural Networks
+```
 
 ---
 
 ## 🗺️ نقشه راه آینده
 
-- [ ] **Batch Normalization:** پیاده‌سازی Batch Normalization از پایه جهت افزایش پایداری و سرعت همگرایی شبکه.
-- [ ] **Dropout Regularization:** افزودن لایه Dropout برای کاهش بیش‌برازش و افزایش قدرت تعمیم.
-- [ ] **Softmax Layer:** پیاده‌سازی مستقل لایه Softmax برای دسته‌بندی چندکلاسه.
-- [ ] **Learning Rate Schedulers:** اضافه کردن زمان‌بندی‌های مختلف نرخ یادگیری.
-- [ ] **Data Augmentation:** پیاده‌سازی تکنیک‌های افزایش داده برای مسائل بینایی ماشین.
-- [ ] **Model Serialization:** امکان ذخیره و بارگذاری مدل‌های آموزش‌دیده.
-- [ ] **GPU Acceleration (CuPy):** استفاده از CuPy جهت افزایش سرعت محاسبات روی GPU.
-- [ ] **Additional CNN Architectures:** پیاده‌سازی معماری‌های کلاسیک مانند LeNet و Resnet از پایه با Pytorch .
-
-</div>
+- [ ] Batch Normalization
+- [ ] Dropout Regularization
+- [ ] لایه مستقل Softmax
+- [ ] زمان‌بندی نرخ یادگیری (StepLR و Cosine Annealing)
+- [ ] Data Augmentation
+- [ ] ذخیره و بارگذاری مدل (.pkl)
+- [ ] شتاب‌دهی GPU با استفاده از CuPy
+- [ ] پیاده‌سازی معماری‌های LeNet و ResNet با PyTorch
